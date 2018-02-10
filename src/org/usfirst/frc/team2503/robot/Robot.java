@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2503.robot;
 
+import org.usfirst.frc.team2503.robot.vision.Vision;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -24,23 +26,30 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
+		Drive.init();
+		RangeFinder.init();
+		Vision.Init();
 	}
-
+	
+	@Override
+	public void robotPeriodic() {
+		RangeFinder.run();
+	}
+	
 	/**
-	 * This autonomous (along with the chooser code above) shows how to select
-	 * between different autonomous modes using the dashboard. The sendable
-	 * chooser code works with the Java SmartDashboard. If you prefer the
-	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-	 * getString line to get the auto name from the text box below the Gyro
-	 *
-	 * <p>You can add additional auto modes by adding additional comparisons to
-	 * the switch structure below with additional strings. If using the
-	 * SendableChooser make sure to add them to the chooser code above as well.
+	 * This function is called when switching to autonomous control
 	 */
 	@Override
 	public void autonomousInit() {
 		
+	}
+	
+	/**
+	 * This function is called when switching to operator control
+	 */
+	@Override
+	public void teleopInit() {
+		Input.Init();
 	}
 
 	/**
@@ -57,12 +66,5 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Drive.teleopPeriodic();
-	}
-
-	/**
-	 * This function is called periodically during test mode.
-	 */
-	@Override
-	public void testPeriodic() {
 	}
 }

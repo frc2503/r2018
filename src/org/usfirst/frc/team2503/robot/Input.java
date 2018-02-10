@@ -12,20 +12,12 @@ public class Input {
 	private static Joystick joystickRight;
 	private static Joystick joystickLeft;
 	
-	static
-	{
+	public static void Init() {
 		joystickRight = new Joystick(Constants.JOYSTICK_RIGHT);
 		joystickLeft = new Joystick(Constants.JOYSTICK_LEFT);
 	}
 
-	public static Joystick getRight()
-	{
-		return joystickRight;
-	}
-	
-	public static Joystick getLeft()
-	{
-		return joystickLeft;
-	}
+	public static Joystick getRight() { return joystickRight; }	
+	public static Joystick getLeft() { return joystickLeft; }
 	
 }

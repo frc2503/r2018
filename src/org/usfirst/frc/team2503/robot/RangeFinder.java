@@ -17,14 +17,14 @@ public class RangeFinder {
 	
 	private static boolean rangeSwitch;
 	
-	private static final double VOLTS_PER_5MM = 5 / 1024;
+	private static final double VOLTS_PER_5MM = 5d / 1024d * 1000;
 	
 	public static void init() {
 		rangeSwitch = true;
 		rangeLeftMM = 0d;
 		rangeRightMM = 0d;
 		rangeFinderLeft = new AnalogInput(Constants.RANGEFINDER_LEFT);
-		rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
+		//rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
 		
 		System.out.println("RangeFinder.init() done");
 	}
@@ -32,22 +32,22 @@ public class RangeFinder {
 	public static double getLeft() { return rangeLeftMM; }
 	public static double getRight() { return rangeRightMM; }
 	
-	private static double voltageToDistance(double measuredVolatage) {
+	private static double voltageToDistance(double measuredVoltage) {
 		// https://www.maxbotix.com/ultrasonic-sensor-hrlv%E2%80%91maxsonar%E2%80%91ez-guide-158		
 		// VOLTS_PER_5MM = Supplied Voltage / 1024
 		
-		return 5 * (measuredVolatage / VOLTS_PER_5MM);
+		return 5 * (rangeFinderLeft.getValue() / VOLTS_PER_5MM) / 10 * (7/5);
 		
 	}
 
 	public static void run() {
 		if (rangeSwitch)
 		{
-			rangeLeftMM = voltageToDistance(rangeFinderLeft.getVoltage());
+			rangeLeftMM = voltageToDistance(rangeFinderLeft.getValue());
 		}
 		else
 		{
-			rangeRightMM = voltageToDistance(rangeFinderRight.getVoltage());
+			//rangeRightMM = voltageToDistance(rangeFinderRight.getVoltage());
 		}
 		
 		rangeSwitch = !rangeSwitch;

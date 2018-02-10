@@ -22,10 +22,12 @@ public class Drive {
 	private static Talon talonBackRight;
 	
 	public static void init() {
+		/*
 		talonFrontLeft = new Talon(Constants.TALON_FRONT_LEFT);
 		talonFrontRight = new Talon(Constants.TALON_FRONT_RIGHT);
 		talonBackLeft = new Talon(Constants.TALON_BACK_LEFT);
 		talonBackRight = new Talon(Constants.TALON_BACK_RIGHT);
+		*/
 		direction = true;
 		
 		System.out.println("Drive.init() done");
@@ -43,7 +45,7 @@ public class Drive {
 		rightVal *= Math.abs(rightVal);
 
 		// Switch between forward and reverse with button
-		if (joyLeft.getRawButtonPressed(0))
+		if (joyLeft.getRawButtonPressed(3))
 			direction = !direction;
 
 		// Speed multiplier is from the lever on the left controller
@@ -57,6 +59,8 @@ public class Drive {
 
 	public static void set(double left, double right) {
 
+		System.out.println(direction);
+		/*
 		if (direction) {
 			// Drive normally
 			talonFrontLeft.set(left);
@@ -70,6 +74,7 @@ public class Drive {
 			talonBackLeft.set(-right);
 			talonBackRight.set(-left);
 		}
+		*/
 	}
 
 }

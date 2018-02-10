@@ -34,6 +34,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotPeriodic() {
 		RangeFinder.run();
+		System.out.println(RangeFinder.getLeft());
 	}
 	
 	/**
@@ -49,7 +50,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
-		Input.Init();
+		Input.init();
 	}
 
 	/**

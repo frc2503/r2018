@@ -10,6 +10,8 @@ import org.usfirst.frc.team2503.robot.Drive;
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode;
+import edu.wpi.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.wpilibj.CameraServer;
 
 /**
@@ -24,20 +26,42 @@ public class VisionThread extends Thread {
 
 	// currentCamera is essentially just whatever Drive.direction was 1 update ago
 	private boolean currentCamera;
+	
+	private int frame = 0;
 
 	public void run() {
-
-		currentCamera = Drive.direction;
-
+		/*
+		
+		UsbCamera cameraBack = CameraServer.getInstance().startAutomaticCapture(Constants.CAMERA_BACK);
+        cameraBack.setResolution(640, 480);
+        cameraBack.setResolution(CAMERA_WIDTH, CAMERA_HEIGHT);
+		cameraBack.setFPS(20);        
+        
+        CvSink cvSink = CameraServer.getInstance().getVideo(cameraBack);
+        CvSource outputStream = CameraServer.getInstance().putVideo("VisionProcessing", CAMERA_WIDTH, CAMERA_HEIGHT);
+        if (!outputStream.setFPS(30))
+        	System.out.println("Failed to set CvSource fps");
+        
+        Mat source = new Mat();
+        
+        while(!Thread.interrupted()) {
+            cvSink.grabFrame(source);
+            //Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+            outputStream.putFrame(source);
+        }
+        */
+        		
 		UsbCamera cameraFront = CameraServer.getInstance().startAutomaticCapture(Constants.CAMERA_FRONT);
 		UsbCamera cameraBack = CameraServer.getInstance().startAutomaticCapture(Constants.CAMERA_BACK);
 
 		cameraFront.setResolution(CAMERA_WIDTH, CAMERA_HEIGHT);
 		cameraBack.setResolution(CAMERA_WIDTH, CAMERA_HEIGHT);
+		cameraBack.setFPS(20);
 
 		CvSink cvSink = CameraServer.getInstance().getVideo(currentCamera ? cameraFront : cameraBack);
 		CvSource outputStream = CameraServer.getInstance().putVideo("VisionProcessing", CAMERA_WIDTH, CAMERA_HEIGHT);
-
+		outputStream.setResolution(CAMERA_WIDTH, CAMERA_HEIGHT);
+		//cvSink.setSource(cameraBack);
 		Mat src = new Mat();
 
 		while (!Thread.interrupted()) {
@@ -47,15 +71,16 @@ public class VisionThread extends Thread {
 				cvSink = CameraServer.getInstance().getVideo(Drive.direction ? cameraFront : cameraBack);
 			}
 			
-			// Draw a HUD
-			Imgproc.circle(src, new Point(100, 100), 10, new Scalar(255, 255, 255, 255));
 			
 			// Get the last frame
 			cvSink.grabFrame(src);
 
 			// Output the frame
+			
 			outputStream.putFrame(src);
 		}
+		
+		
 
 	}
 

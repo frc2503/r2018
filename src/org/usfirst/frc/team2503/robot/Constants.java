@@ -8,9 +8,8 @@ package org.usfirst.frc.team2503.robot;
 public class Constants {
 	
 	// PC Stuff
-	// TODO
-	public static final int JOYSTICK_LEFT = 0;
-	public static final int JOYSTICK_RIGHT = 1;
+	public static final int JOYSTICK_LEFT = 1;
+	public static final int JOYSTICK_RIGHT = 0;
 	
 	// USB
 	// TODO

@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  * project.
  */
 public class Robot extends IterativeRobot {
-	
+
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -27,24 +27,25 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		Drive.init();
-		RangeFinder.init();
+		// RangeFinder.init();
+		Shooter.init();
 		Vision.Init();
 	}
-	
+
 	@Override
 	public void robotPeriodic() {
-		RangeFinder.run();
-		System.out.println(RangeFinder.getLeft());
+		// RangeFinder.run();
+		// System.out.println(RangeFinder.getLeft());
 	}
-	
+
 	/**
 	 * This function is called when switching to autonomous control
 	 */
 	@Override
 	public void autonomousInit() {
-		
+
 	}
-	
+
 	/**
 	 * This function is called when switching to operator control
 	 */
@@ -58,7 +59,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		
+
 	}
 
 	/**
@@ -67,5 +68,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Drive.teleopPeriodic();
+		Shooter.teleopPeriodic();
 	}
 }

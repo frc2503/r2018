@@ -16,18 +16,12 @@ public class Drive {
 	public static boolean direction;
 
 	// Speed controllers
-	private static Talon talonFrontLeft;
-	private static Talon talonFrontRight;
-	private static Talon talonBackLeft;
-	private static Talon talonBackRight;
+	private static Talon talonLeft;
+	private static Talon talonRight;
 	
 	public static void init() {
-		/*
-		talonFrontLeft = new Talon(Constants.TALON_FRONT_LEFT);
-		talonFrontRight = new Talon(Constants.TALON_FRONT_RIGHT);
-		talonBackLeft = new Talon(Constants.TALON_BACK_LEFT);
-		talonBackRight = new Talon(Constants.TALON_BACK_RIGHT);
-		*/
+		talonLeft = new Talon(Constants.TALON_DRIVE_LEFT);
+		talonRight = new Talon(Constants.TALON_DRIVE_RIGHT);
 		direction = true;
 		
 		System.out.println("Drive.init() done");
@@ -60,21 +54,17 @@ public class Drive {
 	public static void set(double left, double right) {
 
 		System.out.println(direction);
-		/*
+		
 		if (direction) {
 			// Drive normally
-			talonFrontLeft.set(left);
-			talonFrontRight.set(right);
-			talonBackLeft.set(left);
-			talonBackRight.set(right);
+			talonLeft.set(left);
+			talonRight.set(right);
 		} else {
 			// Drive backwards
-			talonFrontLeft.set(-right);
-			talonFrontRight.set(-left);
-			talonBackLeft.set(-right);
-			talonBackRight.set(-left);
+			talonLeft.set(-right);
+			talonRight.set(-left);
 		}
-		*/
+		
 	}
 
 }

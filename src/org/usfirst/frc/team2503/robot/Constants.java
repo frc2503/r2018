@@ -39,6 +39,6 @@ public class Constants {
 	public static final int LIMIT_RIGHT = 1;
 	
 	// PCM
-	// TODO
-	public static final int SOLENOID = 0;
+	public static final int SOLENOID_LEFT = 0;
+	public static final int SOLENOID_RIGHT = 2;
 }

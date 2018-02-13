@@ -7,11 +7,13 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class Pneumatics {
 
 	private static Compressor compressor;
-	private static DoubleSolenoid ds;
+	private static DoubleSolenoid solenoidLeft;
+	private static DoubleSolenoid solenoidRight;
 
 	public static void init() {
 		compressor = new Compressor();
-		ds = new DoubleSolenoid(0, Constants.SOLENOID);
+		solenoidLeft = new DoubleSolenoid(Constants.SOLENOID_RIGHT, Constants.SOLENOID_RIGHT + 1);
+		solenoidRight = new DoubleSolenoid(Constants.SOLENOID_LEFT, Constants.SOLENOID_LEFT + 1);
 
 		compressor.setClosedLoopControl(true);
 		compressor.start();
@@ -19,12 +21,14 @@ public class Pneumatics {
 
 	public static void teleopPeriodic() {
 		if (Input.getRight().getPOV() == 0) {
-			ds.set(Value.kForward);
+			solenoidLeft.set(Value.kForward);
+			solenoidRight.set(Value.kForward);
 		} else if (Input.getRight().getPOV() == 180) {
-			ds.set(Value.kReverse);
+			solenoidLeft.set(Value.kReverse);
+			solenoidRight.set(Value.kReverse);
 		} else {
-			ds.set(Value.kOff);
-			// Don't flippin break
+			solenoidLeft.set(Value.kOff);
+			solenoidRight.set(Value.kOff);
 		}
 	}
 

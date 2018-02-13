@@ -24,7 +24,7 @@ public class Pneumatics {
 			ds.set(Value.kReverse);
 		} else {
 			ds.set(Value.kOff);
-			// Don't f***ing break
+			// Don't flippin break
 		}
 	}
 

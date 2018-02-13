@@ -26,16 +26,20 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		Drive.init();
-		// RangeFinder.init();
-		Shooter.init();
-		Vision.Init();
+		Input.init();
+		//Drive.init();
+		//RangeFinder.init();
+		//Shooter.init();
+		//Vision.Init();
 	}
 
 	@Override
 	public void robotPeriodic() {
-		// RangeFinder.run();
-		// System.out.println(RangeFinder.getLeft());
+		System.out.println(Input.getRight().getPOV());
+		//RangeFinder.run();
+		//System.out.println(RangeFinder.getLeft());
+		//Shooter.teleopPeriodic();
+		
 	}
 
 	/**
@@ -51,7 +55,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
-		Input.init();
+		
 	}
 
 	/**
@@ -67,7 +71,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		Drive.teleopPeriodic();
-		Shooter.teleopPeriodic();
+		//Drive.teleopPeriodic();
+		//Shooter.teleopPeriodic();
 	}
 }

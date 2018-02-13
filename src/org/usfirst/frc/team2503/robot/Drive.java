@@ -53,7 +53,7 @@ public class Drive {
 
 	public static void set(double left, double right) {
 
-		System.out.println(direction);
+		//System.out.println(direction);
 		
 		if (direction) {
 			// Drive normally

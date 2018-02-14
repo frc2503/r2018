@@ -2,6 +2,11 @@ package org.usfirst.frc.team2503.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 
+/*
+ * Troubleshooting:
+ * 1. This doesn't work anyway
+ */
+
 /**
  * This class contains methods for getting range finder distances
  * @author warri
@@ -26,7 +31,7 @@ public class RangeFinder {
 		rangeFinderLeft = new AnalogInput(Constants.RANGEFINDER_LEFT);
 		//rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
 		
-		System.out.println("RangeFinder.init() done");
+		System.out.println("RangeFinder initialized");
 	}
 	
 	public static double getLeft() { return rangeLeftMM; }
@@ -47,7 +52,7 @@ public class RangeFinder {
 		}
 		else
 		{
-			//rangeRightMM = voltageToDistance(rangeFinderRight.getVoltage());
+			rangeRightMM = voltageToDistance(rangeFinderRight.getVoltage());
 		}
 		
 		rangeSwitch = !rangeSwitch;

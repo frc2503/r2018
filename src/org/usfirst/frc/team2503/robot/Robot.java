@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team2503.robot;
 
-import org.usfirst.frc.team2503.robot.vision.Vision;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -24,22 +22,23 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+	
 	@Override
 	public void robotInit() {
-		Input.init();
-		//Drive.init();
-		//RangeFinder.init();
-		//Shooter.init();
-		//Vision.Init();
+		Input.init();	
+		Pneumatics.init();
+		// Drive.init();
+		// RangeFinder.init();
+		Intake.init();
+		Shooter.init();
+		Winch.init();
+		// Vision.Init();
 	}
 
 	@Override
 	public void robotPeriodic() {
-		System.out.println(Input.getRight().getPOV());
-		//RangeFinder.run();
-		//System.out.println(RangeFinder.getLeft());
-		//Shooter.teleopPeriodic();
-		
+		// RangeFinder.run();
+
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
-		
+
 	}
 
 	/**
@@ -71,7 +70,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		//Drive.teleopPeriodic();
-		//Shooter.teleopPeriodic();
+		 //Drive.teleopPeriodic();
+		 Pneumatics.teleopPeriodic();
+		 Shooter.teleopPeriodic();
+		 Intake.teleopPeriodic();
+		 Winch.teleopPeriodic();
 	}
 }

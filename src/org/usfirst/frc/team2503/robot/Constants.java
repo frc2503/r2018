@@ -1,5 +1,14 @@
 package org.usfirst.frc.team2503.robot;
 
+/*
+ * Troubleshooting:
+ * Each of these variables corresponds with a port number.
+ * This can be a DIO port, PWM port, PCM port, etc. These
+ * should only be changed when the port something is
+ * physically connected to changes. (AKA talk to someone
+ * from mechanical)
+ */
+
 /**
  * This class contains constant values for port numbers
  * @author warri
@@ -39,6 +48,9 @@ public class Constants {
 	public static final int LIMIT_RIGHT = 1;
 	
 	// PCM
+	// Since double solenoids use two ports, these
+	// will use the set port as well as the next port
+	// Ex: SOLENOID_LEFT uses ports 0 and 1 (0 + 1 = 1)
 	public static final int SOLENOID_LEFT = 0;
 	public static final int SOLENOID_RIGHT = 2;
 }

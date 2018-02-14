@@ -3,6 +3,16 @@ package org.usfirst.frc.team2503.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Talon;
 
+/*
+ * Troubleshooting:
+ * 1. Make sure "Drive.init()" is called on robotInit()
+ * 		and "Drive.teleopPeriodic()" is called on teleopPeriodic();
+ * 2. Check physical connections for the Talons
+ * 3. Check physical connections for the joysticks
+ * 4. Check that the Talons are connected to the correct PWM
+ * 		ports (check Constants.java)
+ */
+
 /**
  * This class contains all methods relating to controlling the four speed
  * controllers used for driving
@@ -24,7 +34,7 @@ public class Drive {
 		talonRight = new Talon(Constants.TALON_DRIVE_RIGHT);
 		direction = true;
 		
-		System.out.println("Drive.init() done");
+		System.out.println("Drive initialized");
 	}
 
 	public static void teleopPeriodic() {
@@ -53,8 +63,6 @@ public class Drive {
 
 	public static void set(double left, double right) {
 
-		//System.out.println(direction);
-		
 		if (direction) {
 			// Drive normally
 			talonLeft.set(left);

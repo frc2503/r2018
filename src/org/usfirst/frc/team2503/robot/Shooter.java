@@ -2,6 +2,14 @@ package org.usfirst.frc.team2503.robot;
 
 import edu.wpi.first.wpilibj.Talon;
 
+/*
+ * Troubleshooting:
+ * 1. Make sure "Shooter.init()" is called on robotInit() and
+ * 		"Shooter.teleopPeriodic()" is called on robotPeriodic()
+ * 2. Check the physical connections of the Talons
+ * 3. Check the physical connections of the joysticks
+ */
+
 /**
  * This class contains out code for intake and shooting
  * 
@@ -10,7 +18,7 @@ import edu.wpi.first.wpilibj.Talon;
  */
 public class Shooter {
 
-	private static final double FRONT_POWER = 0.75;
+	private static final double FRONT_POWER = 1;
 	private static final double BACK_POWER = 0.8;
 
 	private static Talon talonShooterFrontLeft;
@@ -27,10 +35,11 @@ public class Shooter {
 
 	public static void teleopPeriodic() {
 		// Button 2 on right joystick
+		
 		if (Input.getRight().getRawButton(1)) {
 			// Down
-			talonShooterFrontLeft.set(FRONT_POWER);
-			talonShooterFrontRight.set(-FRONT_POWER);
+			talonShooterFrontLeft.set(-FRONT_POWER);
+			talonShooterFrontRight.set(FRONT_POWER);
 		} else {
 			// Up
 			talonShooterFrontLeft.set(0);
@@ -38,15 +47,16 @@ public class Shooter {
 		}
 
 		// Trigger button on right joystick
-		if (Input.getRight().getRawButton(0)) {
+		if (Input.getRight().getRawButton(2)) {
 			// Down
-			talonShooterBackLeft.set(BACK_POWER);
-			talonShooterBackRight.set(-BACK_POWER);
+			talonShooterBackLeft.set(-BACK_POWER);
+			talonShooterBackRight.set(BACK_POWER);
 		} else {
 			// Up
 			talonShooterBackLeft.set(0);
 			talonShooterBackRight.set(0);
 		}
+		
 		
 	}
 

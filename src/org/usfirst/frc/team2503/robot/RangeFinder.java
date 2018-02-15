@@ -31,7 +31,7 @@ public class RangeFinder {
 		rangeFinderLeft = new AnalogInput(Constants.RANGEFINDER_LEFT);
 		//rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
 		
-		System.out.println("RangeFinder initialized");
+		System.out.println("Rangefinder initialized");
 	}
 	
 	public static double getLeft() { return rangeLeftMM; }

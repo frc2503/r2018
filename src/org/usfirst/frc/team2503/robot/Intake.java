@@ -27,6 +27,7 @@ public class Intake {
 		// Commented out because these are not a thing yet
 		//limitSwitchLeft = new DigitalInput(Constants.LIMIT_LEFT);
 		//limitSwitchRight = new DigitalInput(Constants.LIMIT_RIGHT);
+		System.out.println("Intake initialized");
 
 	}
 

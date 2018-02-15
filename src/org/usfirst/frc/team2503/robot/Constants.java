@@ -31,11 +31,11 @@ public class Constants {
 	public static final int TALON_SHOOT_FRONT_LEFT = 2;
 	public static final int TALON_SHOOT_FRONT_RIGHT = 3;
 	public static final int TALON_SHOOT_BACK_LEFT = 4;
-	public static final int TALON_SHOOT_BACK_RIGHT = 5;
+	public static final int TALON_SHOOT_BACK_RIGHT = 9;
 	public static final int TALON_INTAKE_LEFT = 7;
 	public static final int TALON_INTAKE_RIGHT = 8;
 	public static final int TALON_WINCH = 6;
-	public static final int TALON_ARM = 9;
+	public static final int TALON_ARM = 5;
 
 	// Analog
 	// TODO

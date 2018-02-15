@@ -16,6 +16,8 @@ public class Winch {
 	
 	public static void init() {
 		talonWinch = new Talon(Constants.TALON_WINCH);
+		
+		System.out.println("Winch initialized");
 	}
 	
 	public static void teleopPeriodic() {

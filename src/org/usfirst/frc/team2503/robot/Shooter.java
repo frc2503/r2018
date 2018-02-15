@@ -19,7 +19,8 @@ import edu.wpi.first.wpilibj.Talon;
 public class Shooter {
 
 	private static final double FRONT_POWER = 1;
-	private static final double BACK_POWER = 0.8;
+	private static final double BACK_POWER = 1;
+	private static final double BACK_POWER_SLOW = .3;
 
 	private static Talon talonShooterFrontLeft;
 	private static Talon talonShooterFrontRight;
@@ -31,6 +32,8 @@ public class Shooter {
 		talonShooterFrontRight = new Talon(Constants.TALON_SHOOT_FRONT_RIGHT);
 		talonShooterBackLeft = new Talon(Constants.TALON_SHOOT_BACK_LEFT);
 		talonShooterBackRight = new Talon(Constants.TALON_SHOOT_BACK_RIGHT);
+		
+		System.out.println("Shooter initialized");
 	}
 
 	public static void teleopPeriodic() {
@@ -51,6 +54,10 @@ public class Shooter {
 			// Down
 			talonShooterBackLeft.set(-BACK_POWER);
 			talonShooterBackRight.set(BACK_POWER);
+		} else if (Input.getRight().getRawButton(6)) {
+			// Up
+			talonShooterBackLeft.set(-BACK_POWER_SLOW);
+			talonShooterBackRight.set(BACK_POWER_SLOW);
 		} else {
 			// Up
 			talonShooterBackLeft.set(0);

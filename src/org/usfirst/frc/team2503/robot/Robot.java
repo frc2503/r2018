@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
 		// RangeFinder.init();
 		// Intake.init();
 		Shooter.init();
-		// Winch.init();
+		// Arm.init();
 		// Vision.Init();
 
 		System.out.println("Robot initialized");
@@ -85,6 +85,6 @@ public class Robot extends IterativeRobot {
 		// Pneumatics.teleopPeriodic();
 		Shooter.teleopPeriodic();
 		// Intake.teleopPeriodic();
-		// Winch.teleopPeriodic();
+		// Arm.teleopPeriodic();
 	}
 }

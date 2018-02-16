@@ -10,12 +10,16 @@ import edu.wpi.first.wpilibj.Talon;
  * 3. Check the physical connections of the Joysticks
  */
 
-public class Winch {
+public class Arm {
 
 	private static Talon talonWinch;
+	private static Talon talonArm;
+
+	private static final double ARM_SPEED = 0.25;
 
 	public static void init() {
 		talonWinch = new Talon(Constants.TALON_WINCH);
+		talonArm = new Talon(Constants.TALON_ARM);
 
 		System.out.println("Winch initialized");
 	}
@@ -25,6 +29,11 @@ public class Winch {
 			talonWinch.set(1);
 		} else {
 			talonWinch.set(0);
+		}
+		if (Input.getLeft().getPOV() == 0) {
+			talonArm.set(ARM_SPEED);
+		} else if (Input.getLeft().getPOV() == 180) {
+			talonArm.set(-ARM_SPEED);
 		}
 	}
 

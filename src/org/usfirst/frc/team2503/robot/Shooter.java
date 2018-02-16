@@ -32,39 +32,41 @@ public class Shooter {
 		talonShooterFrontRight = new Talon(Constants.TALON_SHOOT_FRONT_RIGHT);
 		talonShooterBackLeft = new Talon(Constants.TALON_SHOOT_BACK_LEFT);
 		talonShooterBackRight = new Talon(Constants.TALON_SHOOT_BACK_RIGHT);
-		
+
 		System.out.println("Shooter initialized");
+	}
+
+	public static void setShooters(double power) {
+		talonShooterFrontLeft.set(-power);
+		talonShooterFrontRight.set(power);
+	}
+	
+	public static void setCubeShifters(double power) {
+		talonShooterBackLeft.set(-power);
+		talonShooterBackRight.set(power);
 	}
 
 	public static void teleopPeriodic() {
 		// Button 2 on right joystick
-		
+
 		if (Input.getRight().getRawButton(1)) {
-			// Down
-			talonShooterFrontLeft.set(-FRONT_POWER);
-			talonShooterFrontRight.set(FRONT_POWER);
+			setShooters(FRONT_POWER);
 		} else {
-			// Up
-			talonShooterFrontLeft.set(0);
-			talonShooterFrontRight.set(0);
+			setShooters(0);
 		}
 
 		// Trigger button on right joystick
 		if (Input.getRight().getRawButton(2)) {
 			// Down
-			talonShooterBackLeft.set(-BACK_POWER);
-			talonShooterBackRight.set(BACK_POWER);
+			setCubeShifters(BACK_POWER);
 		} else if (Input.getRight().getRawButton(6)) {
 			// Up
-			talonShooterBackLeft.set(-BACK_POWER_SLOW);
-			talonShooterBackRight.set(BACK_POWER_SLOW);
+			setCubeShifters(BACK_POWER_SLOW);
 		} else {
 			// Up
-			talonShooterBackLeft.set(0);
-			talonShooterBackRight.set(0);
+			setCubeShifters(0);
 		}
-		
-		
+
 	}
 
 }

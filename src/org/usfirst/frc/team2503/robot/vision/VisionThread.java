@@ -1,11 +1,6 @@
 package org.usfirst.frc.team2503.robot.vision;
 
-import org.opencv.core.Mat;
 import org.usfirst.frc.team2503.robot.Constants;
-import org.usfirst.frc.team2503.robot.Drive;
-
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 
@@ -20,7 +15,7 @@ public class VisionThread extends Thread {
 	public static final int CAMERA_WIDTH = 640;
 	public static final int CAMERA_HEIGHT = 480;
 
-	private boolean direction = Drive.direction;
+	//private boolean direction = Drive.direction;
 
 	public void run() {
 

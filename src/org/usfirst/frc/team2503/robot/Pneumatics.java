@@ -25,15 +25,15 @@ public class Pneumatics {
 		solenoidLeft = new DoubleSolenoid(Constants.SOLENOID_RIGHT, Constants.SOLENOID_RIGHT + 1);
 		solenoidRight = new DoubleSolenoid(Constants.SOLENOID_LEFT, Constants.SOLENOID_LEFT + 1);
 
-		//compressor.setClosedLoopControl(true);
-		// This won't actually start until you switch to 
+		// compressor.setClosedLoopControl(true);
+		// This won't actually start until you switch to
 		// autonomous, teleoperated, or test mode
 		compressor.start();
 		System.out.println("Pneumatics initialized");
 	}
 
 	public static void teleopPeriodic() {
-		
+
 		if (Input.getRight().getPOV() == 0) {
 			solenoidLeft.set(Value.kForward);
 			solenoidRight.set(Value.kForward);
@@ -44,7 +44,7 @@ public class Pneumatics {
 			solenoidLeft.set(Value.kOff);
 			solenoidRight.set(Value.kOff);
 		}
-		
+
 	}
 
 }

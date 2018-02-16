@@ -28,12 +28,12 @@ public class Drive {
 	// Speed controllers
 	private static Talon talonLeft;
 	private static Talon talonRight;
-	
+
 	public static void init() {
 		talonLeft = new Talon(Constants.TALON_DRIVE_LEFT);
 		talonRight = new Talon(Constants.TALON_DRIVE_RIGHT);
 		direction = true;
-		
+
 		System.out.println("Drive initialized");
 	}
 
@@ -72,7 +72,7 @@ public class Drive {
 			talonLeft.set(-right);
 			talonRight.set(-left);
 		}
-		
+
 	}
 
 }

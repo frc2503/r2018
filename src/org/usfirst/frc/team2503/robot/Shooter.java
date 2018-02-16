@@ -40,7 +40,7 @@ public class Shooter {
 		talonShooterFrontLeft.set(-power);
 		talonShooterFrontRight.set(power);
 	}
-	
+
 	public static void setCubeShifters(double power) {
 		talonShooterBackLeft.set(-power);
 		talonShooterBackRight.set(power);

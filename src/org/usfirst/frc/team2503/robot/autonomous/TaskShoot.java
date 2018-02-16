@@ -33,17 +33,17 @@ public class TaskShoot implements TaskBase {
 			Initialize();
 
 		Shooter.setShooters(1);
-		
+
 		if (taskTimer.get() > 0.75) {
-			Shooter.setCubeShifters(0.3);
+			Shooter.setCubeShifters(power);
 		}
-		
+
 		if (taskTimer.get() > 2) {
 			Shooter.setCubeShifters(0);
 			Shooter.setShooters(0);
 			return TaskReturnType.DONE;
 		}
-		
+
 		return TaskReturnType.IN_PROGRESS;
 
 	}

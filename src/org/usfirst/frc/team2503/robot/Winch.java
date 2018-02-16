@@ -11,18 +11,17 @@ import edu.wpi.first.wpilibj.Talon;
  */
 
 public class Winch {
-	
+
 	private static Talon talonWinch;
-	
+
 	public static void init() {
 		talonWinch = new Talon(Constants.TALON_WINCH);
-		
+
 		System.out.println("Winch initialized");
 	}
-	
+
 	public static void teleopPeriodic() {
-		if (Input.getLeft().getRawButton(2))
-		{
+		if (Input.getLeft().getRawButton(2)) {
 			talonWinch.set(1);
 		} else {
 			talonWinch.set(0);

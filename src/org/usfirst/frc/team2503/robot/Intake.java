@@ -23,19 +23,20 @@ public class Intake {
 	public static void init() {
 		talonIntakeLeft = new Talon(Constants.TALON_INTAKE_LEFT);
 		talonIntakeRight = new Talon(Constants.TALON_INTAKE_RIGHT);
-		
+
 		// Commented out because these are not a thing yet
-		//limitSwitchLeft = new DigitalInput(Constants.LIMIT_LEFT);
-		//limitSwitchRight = new DigitalInput(Constants.LIMIT_RIGHT);
+		// limitSwitchLeft = new DigitalInput(Constants.LIMIT_LEFT);
+		// limitSwitchRight = new DigitalInput(Constants.LIMIT_RIGHT);
 		System.out.println("Intake initialized");
 
 	}
 
 	public static void teleopPeriodic() {
 		// Commented out because these are not a thing yet
-		if (Input.getRight().getRawButton(3)/* &&
-				!limitSwitchLeft.get() &&
-				!limitSwitchRight.get()*/) {
+		if (Input.getRight().getRawButton(
+				3)/*
+					 * && !limitSwitchLeft.get() && !limitSwitchRight.get()
+					 */) {
 			talonIntakeLeft.set(-INTAKE_SPEED);
 			talonIntakeRight.set(INTAKE_SPEED);
 		} else {

@@ -9,52 +9,55 @@ import edu.wpi.first.wpilibj.AnalogInput;
 
 /**
  * This class contains methods for getting range finder distances
+ * 
  * @author warri
  *
  */
 public class RangeFinder {
-	
+
 	public static double rangeLeftMM;
 	public static double rangeRightMM;
-	
+
 	private static AnalogInput rangeFinderLeft;
 	private static AnalogInput rangeFinderRight;
-	
+
 	private static boolean rangeSwitch;
-	
+
 	private static final double VOLTS_PER_5MM = 5d / 1024d * 1000;
-	
+
 	public static void init() {
 		rangeSwitch = true;
 		rangeLeftMM = 0d;
 		rangeRightMM = 0d;
 		rangeFinderLeft = new AnalogInput(Constants.RANGEFINDER_LEFT);
-		//rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
-		
+		// rangeFinderRight = new AnalogInput(Constants.RANGEFINDER_RIGHT);
+
 		System.out.println("Rangefinder initialized");
 	}
-	
-	public static double getLeft() { return rangeLeftMM; }
-	public static double getRight() { return rangeRightMM; }
-	
+
+	public static double getLeft() {
+		return rangeLeftMM;
+	}
+
+	public static double getRight() {
+		return rangeRightMM;
+	}
+
 	private static double voltageToDistance(double measuredVoltage) {
-		// https://www.maxbotix.com/ultrasonic-sensor-hrlv%E2%80%91maxsonar%E2%80%91ez-guide-158		
+		// https://www.maxbotix.com/ultrasonic-sensor-hrlv%E2%80%91maxsonar%E2%80%91ez-guide-158
 		// VOLTS_PER_5MM = Supplied Voltage / 1024
-		
-		return 5 * (rangeFinderLeft.getValue() / VOLTS_PER_5MM) / 10 * (7/5);
-		
+
+		return 5 * (rangeFinderLeft.getValue() / VOLTS_PER_5MM) / 10 * (7 / 5);
+
 	}
 
 	public static void run() {
-		if (rangeSwitch)
-		{
+		if (rangeSwitch) {
 			rangeLeftMM = voltageToDistance(rangeFinderLeft.getValue());
-		}
-		else
-		{
+		} else {
 			rangeRightMM = voltageToDistance(rangeFinderRight.getVoltage());
 		}
-		
+
 		rangeSwitch = !rangeSwitch;
 	}
 }

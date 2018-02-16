@@ -15,7 +15,7 @@ public class VisionThread extends Thread {
 	public static final int CAMERA_WIDTH = 640;
 	public static final int CAMERA_HEIGHT = 480;
 
-	//private boolean direction = Drive.direction;
+	// private boolean direction = Drive.direction;
 
 	public void run() {
 
@@ -23,14 +23,15 @@ public class VisionThread extends Thread {
 		frontCamera.setResolution(CAMERA_WIDTH, CAMERA_HEIGHT);
 		frontCamera.setFPS(30);
 		/*
-		Mat src = new Mat();
-		CameraServer.getInstance().getVideo("USB Camera 0").grabFrame(src);
-
-		CvSource outputStream = CameraServer.getInstance().putVideo("VisionProcessing", 640, 480);
-		while(!Thread.interrupted()) {
-			
-		}
-*/
+		 * Mat src = new Mat();
+		 * CameraServer.getInstance().getVideo("USB Camera 0").grabFrame(src);
+		 * 
+		 * CvSource outputStream =
+		 * CameraServer.getInstance().putVideo("VisionProcessing", 640, 480);
+		 * while(!Thread.interrupted()) {
+		 * 
+		 * }
+		 */
 	}
 
 }

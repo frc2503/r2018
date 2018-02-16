@@ -30,10 +30,10 @@ public class TaskMove implements TaskBase {
 
 	@Override
 	public TaskReturnType Run() {
-		
+
 		if (!initialized)
 			Initialize();
-		
+
 		if (taskTimer.get() < time) {
 			Drive.set(speed, speed);
 		} else {

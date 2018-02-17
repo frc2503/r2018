@@ -11,7 +11,7 @@ public class Autonomous {
 	}
 
 	public static void autonomousPeriodic() {
-		if (AutonomousTaskManager.Run() && !done) {
+		if (!AutonomousTaskManager.Run() && !done) {
 			System.out.println("Autonomous tasks completed");
 			done = true;
 		}

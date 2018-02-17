@@ -7,7 +7,9 @@
 
 package org.usfirst.frc.team2503.robot;
 
-import edu.wpi.first.wpilibj.DigitalOutput;
+import org.usfirst.frc.team2503.robot.autonomous.Autonomous;
+import org.usfirst.frc.team2503.robot.vision.Vision;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -23,25 +25,17 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	DigitalOutput led1 = new DigitalOutput(0);
-	DigitalOutput led2 = new DigitalOutput(1);
-	DigitalOutput led3 = new DigitalOutput(2);
-	DigitalOutput led4 = new DigitalOutput(3);
 
 	@Override
 	public void robotInit() {
-		led1.set(true); // 1
-		led2.set(true); // 1
-		led3.set(false); // 0
-		led4.set(true); // 1
 		Input.init();
 		Pneumatics.init();
-		// Drive.init();
+		Drive.init();
 		// RangeFinder.init();
-		// Intake.init();
-		//Shooter.init();
-		// Arm.init();
-		// Vision.Init();
+		Intake.init();
+		Shooter.init();
+		Arm.init();
+		Vision.Init();
 
 		System.out.println("Robot initialized");
 	}
@@ -57,7 +51,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-
+		Autonomous.init();
 	}
 
 	/**
@@ -73,7 +67,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-
+		Autonomous.autonomousPeriodic();
 	}
 
 	/**
@@ -81,10 +75,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		// Drive.teleopPeriodic();
+		Drive.teleopPeriodic();
 		Pneumatics.teleopPeriodic();
-		//Shooter.teleopPeriodic();
-		// Intake.teleopPeriodic();
-		// Arm.teleopPeriodic();
+		Shooter.teleopPeriodic();
+		Intake.teleopPeriodic();
+		Arm.teleopPeriodic();
 	}
 }

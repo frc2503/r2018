@@ -15,8 +15,8 @@ public class Intake {
 
 	private static Talon talonIntakeLeft;
 	private static Talon talonIntakeRight;
-	// private static DigitalInput limitSwitchLeft;
-	// private static DigitalInput limitSwitchRight;
+	private static DigitalInput limitSwitchLeft;
+	private static DigitalInput limitSwitchRight;
 
 	private static final double INTAKE_SPEED = 0.9;
 
@@ -33,10 +33,7 @@ public class Intake {
 
 	public static void teleopPeriodic() {
 		// Commented out because these are not a thing yet
-		if (Input.getRight().getRawButton(
-				3)/*
-					 * && !limitSwitchLeft.get() && !limitSwitchRight.get()
-					 */) {
+		if (Input.getRight().getRawButton(3) && !limitSwitchLeft.get() && !limitSwitchRight.get()) {
 			talonIntakeLeft.set(-INTAKE_SPEED);
 			talonIntakeRight.set(INTAKE_SPEED);
 		} else {

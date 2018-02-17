@@ -25,8 +25,8 @@ public class Intake {
 		talonIntakeRight = new Talon(Constants.TALON_INTAKE_RIGHT);
 
 		// Commented out because these are not a thing yet
-		// limitSwitchLeft = new DigitalInput(Constants.LIMIT_LEFT);
-		// limitSwitchRight = new DigitalInput(Constants.LIMIT_RIGHT);
+		limitSwitchLeft = new DigitalInput(Constants.LIMIT_LEFT);
+		limitSwitchRight = new DigitalInput(Constants.LIMIT_RIGHT);
 		System.out.println("Intake initialized");
 
 	}

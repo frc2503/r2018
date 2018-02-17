@@ -51,7 +51,6 @@ public class Constants {
 	// PCM
 	// Since double solenoids use two ports, these
 	// will use the set port as well as the next port
-	// Ex: SOLENOID_LEFT uses ports 0 and 1 (0 + 1 = 1)
-	public static final int SOLENOID_LEFT = 0;
-	public static final int SOLENOID_RIGHT = 2;
+	// Ex: SOLENOID uses ports 0 and 1 (0 + 1 = 1)
+	public static final int SOLENOID = 0;
 }

@@ -17,15 +17,13 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 public class Pneumatics {
 
 	private static Compressor compressor;
-	private static DoubleSolenoid solenoidLeft;
-	private static DoubleSolenoid solenoidRight;
+	private static DoubleSolenoid mainSolenoid;
 
 	public static void init() {
 		compressor = new Compressor();
-		solenoidLeft = new DoubleSolenoid(Constants.SOLENOID_RIGHT, Constants.SOLENOID_RIGHT + 1);
-		solenoidRight = new DoubleSolenoid(Constants.SOLENOID_LEFT, Constants.SOLENOID_LEFT + 1);
+		mainSolenoid = new DoubleSolenoid(0, 1);
 
-		// compressor.setClosedLoopControl(true);
+		compressor.setClosedLoopControl(true);
 		// This won't actually start until you switch to
 		// autonomous, teleoperated, or test mode
 		compressor.start();
@@ -33,16 +31,13 @@ public class Pneumatics {
 	}
 
 	public static void teleopPeriodic() {
-
+		
 		if (Input.getRight().getPOV() == 0) {
-			solenoidLeft.set(Value.kForward);
-			solenoidRight.set(Value.kForward);
+			mainSolenoid.set(Value.kReverse);
 		} else if (Input.getRight().getPOV() == 180) {
-			solenoidLeft.set(Value.kReverse);
-			solenoidRight.set(Value.kReverse);
+			mainSolenoid.set(Value.kForward);
 		} else {
-			solenoidLeft.set(Value.kOff);
-			solenoidRight.set(Value.kOff);
+			mainSolenoid.set(Value.kOff);
 		}
 
 	}

@@ -35,11 +35,11 @@ public class Robot extends IterativeRobot {
 		led3.set(false); // 0
 		led4.set(true); // 1
 		Input.init();
-		// Pneumatics.init();
-		Drive.init();
+		Pneumatics.init();
+		// Drive.init();
 		// RangeFinder.init();
 		// Intake.init();
-		Shooter.init();
+		//Shooter.init();
 		// Arm.init();
 		// Vision.Init();
 
@@ -81,9 +81,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		Drive.teleopPeriodic();
-		// Pneumatics.teleopPeriodic();
-		Shooter.teleopPeriodic();
+		// Drive.teleopPeriodic();
+		Pneumatics.teleopPeriodic();
+		//Shooter.teleopPeriodic();
 		// Intake.teleopPeriodic();
 		// Arm.teleopPeriodic();
 	}

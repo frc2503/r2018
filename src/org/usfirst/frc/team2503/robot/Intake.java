@@ -15,8 +15,8 @@ public class Intake {
 
 	private static Talon talonIntakeLeft;
 	private static Talon talonIntakeRight;
-	private static DigitalInput limitSwitchLeft;
-	private static DigitalInput limitSwitchRight;
+	// private static DigitalInput limitSwitchLeft;
+	// private static DigitalInput limitSwitchRight;
 
 	private static final double INTAKE_SPEED = 0.9;
 

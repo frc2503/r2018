@@ -1,0 +1,10 @@
+Drive speed: Lever on left joystick
+Drive switch direction: Button 3 on left joystick
+Shooter speed: Level on right joystick
+Intake in: Button 3 on right joystick
+Intake out: Button 4 on right joystick
+Raise/Lower shooter: POV on right joystick
+Index motors: Button 2 on right joystick
+Shooting motors: Trigger on right joystick
+Winch: Button 2 on left joystick
+Arm: POV on left joystick

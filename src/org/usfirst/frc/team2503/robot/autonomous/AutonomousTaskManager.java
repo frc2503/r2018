@@ -8,8 +8,7 @@ public class AutonomousTaskManager {
 
 	public static void Initialize() {
 		// Add tasks
-		taskList.addElement(new TaskMove(3.5, 0.35));
-		taskList.addElement(new TaskTurn(0.5, 0.25));
+		taskList.addElement(new TaskMove(3.5, 0.35, 0.35));
 	}
 
 	/**

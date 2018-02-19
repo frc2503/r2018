@@ -6,13 +6,14 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class TaskMove implements TaskBase {
 
-	private double time, speed;
+	private double time, leftSpeed, rightSpeed;
 	private boolean initialized;
 	private Timer taskTimer;
 
-	TaskMove(double stopTime, double speed) {
+	TaskMove(double stopTime, double leftSpeed, double rightSpeed) {
 		this.time = stopTime;
-		this.speed = speed;
+		this.leftSpeed = leftSpeed;
+		this.rightSpeed = rightSpeed;
 		initialized = false;
 	}
 
@@ -35,7 +36,7 @@ public class TaskMove implements TaskBase {
 			Initialize();
 
 		if (taskTimer.get() < time) {
-			Drive.set(speed, speed);
+			Drive.set(leftSpeed, rightSpeed);
 		} else {
 			Drive.set(0, 0);
 			return TaskReturnType.DONE;

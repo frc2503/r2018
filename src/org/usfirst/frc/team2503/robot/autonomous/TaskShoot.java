@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2503.robot.autonomous;
 
+import org.usfirst.frc.team2503.robot.Intake;
 import org.usfirst.frc.team2503.robot.Shooter;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -35,11 +36,11 @@ public class TaskShoot implements TaskBase {
 		Shooter.setShooters(1);
 
 		if (taskTimer.get() > 0.75) {
-			Shooter.setCubeShifters(power);
+			Intake.setCubeShifters(power);
 		}
 
 		if (taskTimer.get() > 2) {
-			Shooter.setCubeShifters(0);
+			Intake.setCubeShifters(0);
 			Shooter.setShooters(0);
 			return TaskReturnType.DONE;
 		}

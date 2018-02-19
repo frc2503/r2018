@@ -37,6 +37,7 @@ public class TaskMove implements TaskBase {
 		if (taskTimer.get() < time) {
 			Drive.set(speed, speed);
 		} else {
+			Drive.set(0, 0);
 			return TaskReturnType.DONE;
 		}
 		return TaskReturnType.IN_PROGRESS;

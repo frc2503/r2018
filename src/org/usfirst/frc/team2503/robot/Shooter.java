@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.Talon;
  * 1. Make sure "Shooter.init()" is called on robotInit() and
  * 		"Shooter.teleopPeriodic()" is called on robotPeriodic()
  * 2. Check the physical connections of the Talons
- * 3. Check the physical connections of the joysticks
  */
 
 /**
@@ -45,10 +44,6 @@ public class Shooter {
 			setShooters(0);
 		}
 
-		// Move cube into front motors
-		if (Input.getRight().getRawButton(2)) {
-			Intake.setCubeShifters(0.5);
-		}
 
 	}
 

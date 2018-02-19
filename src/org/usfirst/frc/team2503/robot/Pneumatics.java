@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
  * Troubleshooting:
  * 1. Make sure "Pneumatics.init()" is called on robotInit() and
  * 		"Pneumatics.teleopPeriodic" is called on teleopPeriodic()
- * 2. Check the light on the PCM and Brandt or someone from electrical
+ * 2. Check the light on the PCM with Brandt or someone from electrical
  * 		if it is working
  * 3. Check the physical connections from the PCM to the compressor
  * 		or other components
+ * 4. Make sure the PCM is set to use 24V and not 12V
  */
 
 public class Pneumatics {

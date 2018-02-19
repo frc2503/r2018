@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot {
 		Intake.init();
 		Shooter.init();
 		Arm.init();
-		Vision.Init();
+		Vision.init();
 
 		System.out.println("Robot initialized");
 	}

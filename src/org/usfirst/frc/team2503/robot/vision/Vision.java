@@ -8,7 +8,7 @@ package org.usfirst.frc.team2503.robot.vision;
  */
 public class Vision {
 
-	public static void Init() {
+	public static void init() {
 
 		VisionThread visionThread = new VisionThread();
 

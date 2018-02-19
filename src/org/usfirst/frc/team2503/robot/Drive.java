@@ -8,8 +8,7 @@ import edu.wpi.first.wpilibj.Talon;
  * 1. Make sure "Drive.init()" is called on robotInit()
  * 		and "Drive.teleopPeriodic()" is called on teleopPeriodic();
  * 2. Check physical connections for the Talons
- * 3. Check physical connections for the joysticks
- * 4. Check that the Talons are connected to the correct PWM
+ * 3. Check that the Talons are connected to the correct PWM
  * 		ports (check Constants.java)
  */
 
@@ -32,7 +31,7 @@ public class Drive {
 	public static void init() {
 		talonLeft = new Talon(Constants.TALON_DRIVE_LEFT);
 		talonRight = new Talon(Constants.TALON_DRIVE_RIGHT);
-		direction = true;
+		direction = false;
 
 		System.out.println("Drive initialized");
 	}

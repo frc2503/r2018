@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Talon;
  * 1. Make sure "Intake.init()" is called on robotInit()
  * 		and "Intake.teleopPeriodic()" is called on teleopPeriodic()
  * 2. Check the physical connections of Talons
- * 3. Check the physical connections of the joysticks
+ * 3. Check the physical connections of the limit switches
  */
 
 public class Intake {
@@ -17,7 +17,7 @@ public class Intake {
 	private static Talon talonIntakeRight;
 	private static DigitalInput limitSwitchLeft;
 	private static DigitalInput limitSwitchRight;
-	
+
 	private static Talon talonShooterBackLeft;
 	private static Talon talonShooterBackRight;
 
@@ -36,28 +36,28 @@ public class Intake {
 		System.out.println("Intake initialized");
 
 	}
-	
+
 	public static void setCubeShifters(double power) {
 		talonShooterBackLeft.set(-power);
 		talonShooterBackRight.set(power);
 	}
-	
+
 	// static boolean toggle = false;
 	static boolean lastLimit = false;
 	private static boolean intakeCooldown = false;
 
-	
 	public static void teleopPeriodic() {
-		
-		// System.out.println("Limit left: " + !limitSwitchLeft.get() + "Limit right: " + !limitSwitchRight.get() + " lastLimit: " + lastLimit + " intakeCooldown: " + intakeCooldown);
-		
+
+		if (Constants.DEBUG)
+			System.out.println("Limit left: " + !limitSwitchLeft.get() + "Limit right: " + !limitSwitchRight.get() + " lastLimit: " + lastLimit + " intakeCooldown: " + intakeCooldown);
+
 		// Set cooldown if either limit switch is activated but both
 		// limit switches were inactive last update
 		if ((!limitSwitchLeft.get() || !limitSwitchRight.get()) && !lastLimit) {
 			intakeCooldown = true;
-		}		
-		
-		// Stop intake if either limit switch is activated
+		}
+
+		// Stop intake if cooldown is active
 		if ((Input.getRight().getRawButton(3) || Input.getRight().getRawButton(4)) && !intakeCooldown) {
 			talonIntakeLeft.set(INTAKE_SPEED * (Input.getRight().getRawButton(3) ? -1 : 1));
 			talonIntakeRight.set(INTAKE_SPEED * (Input.getRight().getRawButton(3) ? 1 : -1));
@@ -67,14 +67,19 @@ public class Intake {
 			talonIntakeRight.set(0);
 			setCubeShifters(0);
 		}
-		
+
 		// Remove cooldown if either button is reset
 		if (Input.getRight().getRawButtonPressed(3) || Input.getRight().getRawButtonPressed(4))
 			intakeCooldown = false;
-		
+
+		// Move cube into front motors
+		if (Input.getRight().getRawButton(2)) {
+			Intake.setCubeShifters(0.5);
+		}
+
 		// Update status of lastLimit
 		lastLimit = (!limitSwitchLeft.get() || !limitSwitchRight.get());
-		
+
 	}
 
 }

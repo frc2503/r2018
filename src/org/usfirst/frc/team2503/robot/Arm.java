@@ -6,8 +6,7 @@ import edu.wpi.first.wpilibj.Talon;
  * Troubleshooting:
  * 1. Make sure "Winch.init()" is called on robotInit() and
  * 		"Winch.teleopPeriodic()" is called teleopPeriodic()
- * 2. Check the physical connections of the winch Talon
- * 3. Check the physical connections of the Joysticks
+ * 2. Check the physical connections of the arm and winch Talons
  */
 
 public class Arm {

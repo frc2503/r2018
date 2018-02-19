@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 /*
  * Troubleshooting:
- * 1. Check to make sure the joysticks (and controller) are
+ * 1. Check to make sure the joysticks are
  * 		actually plugged in. 
  * 2. Make sure "Input.int()" is called on robotInit();
  * 3. If the inputs are backwards, switch 

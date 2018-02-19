@@ -6,7 +6,7 @@ package org.usfirst.frc.team2503.robot;
  * This can be a DIO port, PWM port, PCM port, etc. These
  * should only be changed when the port something is
  * physically connected to changes. (AKA talk to someone
- * from mechanical)
+ * from electrical)
  */
 
 /**
@@ -16,6 +16,9 @@ package org.usfirst.frc.team2503.robot;
  *
  */
 public class Constants {
+	
+	// Debug
+	public static final boolean DEBUG = true;
 
 	// PC Stuff
 	public static final int JOYSTICK_LEFT = 1;

@@ -2,13 +2,60 @@ package org.usfirst.frc.team2503.robot.autonomous;
 
 import java.util.Vector;
 
+import org.usfirst.frc.team2503.robot.Input;
+
+import edu.wpi.first.wpilibj.DriverStation;
+
 public class AutonomousTaskManager {
 
 	private static Vector<TaskBase> taskList = new Vector<TaskBase>();
+	
+	public static int GetRemainingTasks()
+	{
+		return taskList.size();
+	}
 
 	public static void Initialize() {
-		// Add tasks
-		taskList.addElement(new TaskMove(3.5, 0.35, 0.35));
+		
+		// Which side are we on? Hopefilly not the middle
+		// False = left, true = right
+		boolean side = Input.getLeft().getRawAxis(2) < 0;
+		
+		System.out.println("Starting on the " + (side ? "left" : "right"));
+		System.out.println("Game message: " + DriverStation.getInstance().getGameSpecificMessage());
+		
+		// Move forward task
+		taskList.addElement(new TaskMove(2.5, -0.5, -0.5));
+		/*
+		// Get FMS data
+		if (DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'L')
+		{
+			// We need to go to the left
+			// If we are on the right and we need to score on the left, don't bother
+			if (side == false)
+			{
+				// Turn to the right
+				taskList.addElement(new TaskMove(1, -0.5, 0.5));
+				// Move forward so we are against the switch wall
+				taskList.addElement(new TaskMove(0.5, -0.4, -0.4));
+				// Shoot
+				taskList.addElement(new TaskShoot(0.5));
+			}
+			
+		} else {
+			// We need to score on the right
+			// If we are on the left and we need to go to the right, don't bother
+			if (side == true)
+			{
+				// Turn to the right
+				taskList.addElement(new TaskMove(1, 0.5, -0.5));
+				// Move forward so we are against the switch wall
+				taskList.addElement(new TaskMove(0.5, -0.4, -0.4));
+				// Shoot
+				taskList.addElement(new TaskShoot(0.5));
+			}
+		}
+		*/
 	}
 
 	/**

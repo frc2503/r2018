@@ -14,7 +14,7 @@ public class Arm {
 	private static Talon talonWinch;
 	private static Talon talonArm;
 
-	private static final double ARM_SPEED = 0.25;
+	private static final double ARM_SPEED = 0.50;
 
 	public static void init() {
 		talonWinch = new Talon(Constants.TALON_WINCH);
@@ -29,10 +29,13 @@ public class Arm {
 		} else {
 			talonWinch.set(0);
 		}
+		
 		if (Input.getLeft().getPOV() == 0) {
 			talonArm.set(ARM_SPEED);
 		} else if (Input.getLeft().getPOV() == 180) {
 			talonArm.set(-ARM_SPEED);
+		} else {
+			talonArm.set(0);
 		}
 	}
 

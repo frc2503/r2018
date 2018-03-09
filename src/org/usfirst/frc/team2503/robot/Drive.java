@@ -52,7 +52,7 @@ public class Drive {
 			direction = !direction;
 
 		// Speed multiplier is from the lever on the left controller
-		double speedMultiplier = (Input.getLeft().getRawAxis(2) - 1) / -2;
+		double speedMultiplier = 1d;/*(Input.getLeft().getRawAxis(2) - 1) / -2;*/
 
 		leftVal *= speedMultiplier;
 		rightVal *= speedMultiplier;

@@ -31,10 +31,10 @@ public class Robot extends IterativeRobot {
 		Input.init();
 		Pneumatics.init();
 		Drive.init();
-		// RangeFinder.init();
+		//RangeFinder.init();
 		Intake.init();
 		Shooter.init();
-		Arm.init();
+		//Arm.init();
 		Vision.init();
 
 		System.out.println("Robot initialized");
@@ -59,7 +59,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
-
+		System.out.println("Teleop Enabled");
 	}
 
 	/**
@@ -68,6 +68,15 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Autonomous.autonomousPeriodic();
+	}
+	
+	@Override
+	public void disabledInit() {
+		System.out.println("Robot Disabled");
+	}
+	
+	@Override
+	public void disabledPeriodic() {
 	}
 
 	/**
@@ -79,6 +88,6 @@ public class Robot extends IterativeRobot {
 		Pneumatics.teleopPeriodic();
 		Shooter.teleopPeriodic();
 		Intake.teleopPeriodic();
-		Arm.teleopPeriodic();
+		//Arm.teleopPeriodic();
 	}
 }

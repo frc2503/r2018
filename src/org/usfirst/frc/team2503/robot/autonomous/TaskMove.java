@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2503.robot.autonomous;
 
+import org.usfirst.frc.team2503.robot.Constants;
 import org.usfirst.frc.team2503.robot.Drive;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -34,6 +35,11 @@ public class TaskMove implements TaskBase {
 
 		if (!initialized)
 			Initialize();
+		
+		if (Constants.DEBUG)
+		{
+			System.out.println(this.GetName() + ": " + this.taskTimer.get());
+		}
 
 		if (taskTimer.get() < time) {
 			Drive.set(leftSpeed, rightSpeed);

@@ -25,7 +25,6 @@ public class Constants {
 	public static final int JOYSTICK_RIGHT = 0;
 
 	// USB
-	// TODO
 	public static final int CAMERA_FRONT = 0;
 	public static final int CAMERA_BACK = 1;
 
@@ -42,12 +41,10 @@ public class Constants {
 	public static final int TALON_ARM = 5;
 
 	// Analog
-	// TODO
 	public static final int RANGEFINDER_LEFT = 0;
 	public static final int RANGEFINDER_RIGHT = 1;
 
 	// Digital
-	// TODO
 	public static final int LIMIT_LEFT = 0;
 	public static final int LIMIT_RIGHT = 1;
 

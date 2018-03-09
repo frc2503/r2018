@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2503.robot.autonomous;
 
+import org.usfirst.frc.team2503.robot.Constants;
 import org.usfirst.frc.team2503.robot.Intake;
 import org.usfirst.frc.team2503.robot.Shooter;
 
@@ -32,11 +33,17 @@ public class TaskShoot implements TaskBase {
 	public TaskReturnType Run() {
 		if (!initialized)
 			Initialize();
-
-		Shooter.setShooters(1);
+		
+		if (Constants.DEBUG)
+		{
+			System.out.println(this.GetName() + ": " + this.taskTimer.get());
+		}
+		
+		// Start shooting motors
+		Shooter.setShooters(power);
 
 		if (taskTimer.get() > 0.75) {
-			Intake.setCubeShifters(power);
+			Intake.setCubeShifters(0.8);
 		}
 
 		if (taskTimer.get() > 2) {

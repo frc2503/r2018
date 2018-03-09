@@ -74,7 +74,7 @@ public class Intake {
 
 		// Move cube into front motors
 		if (Input.getRight().getRawButton(2)) {
-			Intake.setCubeShifters(0.5);
+			Intake.setCubeShifters(1);
 		}
 
 		// Update status of lastLimit

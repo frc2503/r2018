@@ -18,7 +18,7 @@ package org.usfirst.frc.team2503.robot;
 public class Constants {
 	
 	// Debug
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 
 	// PC Stuff
 	public static final int JOYSTICK_LEFT = 1;
